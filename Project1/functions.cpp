@@ -95,22 +95,19 @@ void bogoSort(int* array, int size)
         shuffle(array, size);
 }
 
-#include <iostream>
-#include <algorithm> // For std::sort
+
 
 void binarySearch(int* array, int size) {
-    // Sort the array first to ensure binary search works correctly
-    std::sort(array, array + size);
-
+    shellSort(array, size);
     int search;
     std::cout << "\nInput element: ";
     std::cin >> search;
 
-    int left = 0, right = size - 1;
+    int leftBorder = 0, rightBorder = size - 1;
     bool flag = false;
 
-    while (left <= right) {
-        int mid = left + (right - left) / 2;
+    while (leftBorder <= rightBorder) {
+        int mid = leftBorder + (rightBorder - leftBorder) / 2;
 
         if (array[mid] == search) {
             flag = true;
@@ -120,10 +117,10 @@ void binarySearch(int* array, int size) {
             break;
         }
         else if (array[mid] < search) {
-            left = mid + 1;
+            leftBorder = mid + 1;
         }
         else {
-            right = mid - 1;
+            rightBorder = mid - 1;
         }
     }
 

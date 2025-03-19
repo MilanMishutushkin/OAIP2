@@ -2,8 +2,16 @@
 #include "functions.h"
 
 int main() {
-	int array[] = { 64, 34, 34, 12, 22, 11, 90 };
-	int size = sizeof(array) / sizeof(array[0]);
+	int size;
+	std::cout << "Enter size of array: ";
+	std::cin >> size;
+	int* array = new int[size];
+	for (int i = 0; i < size; i++) 
+	{
+		std::cout <<"\n" << i+1 << " element = ";
+		std::cin >> array[i];
+	}
+
 	std::cout << "Original array: ";
 	for (int i = 0; i < size; i++) {
 		std::cout << array[i] << " ";
